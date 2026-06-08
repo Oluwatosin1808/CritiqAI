@@ -101,12 +101,14 @@
 
   .typewriter {
     overflow: hidden;
-    white-space: nowrap;
+    white-space: normal;
+    word-break: break-word;
     border-right: 2px solid transparent;
     display: inline-block;
+    width: 0;
+    max-width: 100%;
     animation: typewriter 3.5s steps(40, end) forwards,
       blink-caret 0.75s step-end infinite;
-    max-width: 100%;
   }
 
   @keyframes typewriter {
