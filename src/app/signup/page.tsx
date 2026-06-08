@@ -43,8 +43,13 @@ export default function SignupPage() {
       return;
     }
 
-    // If signup returned a user, the account is active; otherwise
-    // Supabase likely requires email confirmation and user will be null.
+    const requiresEmailVerification = !data.session;
+
+    if (requiresEmailVerification) {
+      router.push(`/verify-email?email=${encodeURIComponent(email)}`);
+      return;
+    }
+
     if (data.user) {
       await supabase.from("profiles").upsert({
         id: data.user.id,
@@ -54,9 +59,6 @@ export default function SignupPage() {
       toast.success("Account created! Welcome to Critiq.");
       router.push("/dashboard");
       router.refresh();
-    } else {
-      // Redirect to a simple page instructing the user to verify their email
-      router.push(`/verify-email?email=${encodeURIComponent(email)}`);
     }
   }
 

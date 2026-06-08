@@ -13,7 +13,7 @@ export async function Navbar() {
 
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4">
+      <div className="container mx-auto flex flex-wrap items-center justify-between gap-3 px-4 py-3 lg:h-16">
         <Link href="/" className="flex items-center gap-3 font-bold text-lg">
           <Image
             src="/img/Critiq_Logo.svg"
@@ -24,7 +24,7 @@ export async function Navbar() {
           />
         </Link>
 
-        <nav className="flex items-center gap-2">
+        <nav className="flex flex-wrap items-center justify-end gap-2">
           <ThemeToggle />
           {user ? (
             <>

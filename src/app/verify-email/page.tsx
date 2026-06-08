@@ -17,14 +17,22 @@ export default async function VerifyEmailPage({
         <CardHeader>
           <CardTitle>Check your email</CardTitle>
         </CardHeader>
-        <CardContent>
-          <p className="mb-4">
-            We sent a confirmation link to <strong>{email ?? "your email"}</strong>.
-            Please check your inbox and click the link to verify your account.
-          </p>
+        <CardContent className="space-y-4">
           <p className="text-sm text-muted-foreground">
-            After verifying, return to the <Link href="/login">sign in</Link> page to continue.
+            We sent a confirmation link to <strong>{email ?? "your email"}</strong>.
+            Open your inbox and click the link to verify your account before signing in.
           </p>
+          <div className="rounded-xl bg-muted p-4 text-sm text-muted-foreground">
+            If you don&apos;t see the email within a few minutes, check your spam folder or resend the verification from the login page.
+          </div>
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <Link href="/login" className="text-primary hover:underline">
+              Back to sign in
+            </Link>
+            <p className="text-xs text-muted-foreground">
+              Once verified, return here or sign in to continue.
+            </p>
+          </div>
         </CardContent>
       </Card>
     </div>
