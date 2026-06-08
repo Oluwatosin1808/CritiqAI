@@ -111,6 +111,14 @@
       blink-caret 0.75s step-end infinite;
   }
 
+  @media (max-width: 767px) {
+    .typewriter {
+      animation: none;
+      border-right: none;
+      width: auto;
+    }
+  }
+
   @keyframes typewriter {
     from {
       width: 0;
